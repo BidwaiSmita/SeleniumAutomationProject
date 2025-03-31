@@ -10,7 +10,7 @@ import org.testng.asserts.Assertion;
 import java.time.Duration;
 import java.util.Date;
 
-public class TC_register_001 {
+public class TC_register_005 {
 
     WebDriver driver ;
 
@@ -54,5 +54,14 @@ public class TC_register_001 {
         String datetoString = date.toString();
         String newStr = datetoString.replaceAll(" ","").replaceAll(":","")+"@gmail.com";
         return newStr;
+    }
+
+    @Test
+    public void subsribeRadioButtonCheck() {
+        //check if subscribe radio yes is clicked or not
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.xpath("//div[@id='account-account']//div//ul[4]//li//a")).click();
+        boolean selection = driver.findElement(By.xpath("//div[@class='col-sm-10']//label[1]//input")).isSelected();
+        System.out.println("radio button is selected :, " + selection);
     }
 }
